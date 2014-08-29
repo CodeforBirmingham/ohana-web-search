@@ -641,7 +641,7 @@ sup
 // The container for the Google Translate widget.
 #google-translate-container
 {
-  padding-bottom: 20px;
+  padding: 0px;
 }
 
 // Hides the Google Translate translation banner at the top of the page.
@@ -668,8 +668,8 @@ body { top: 0px !important; }
 
 
 //=================================================================================
-// Language translation links on the upper-right homepage.
-.home #language-box
+// Language translation links on the upper-right homepage and in the footer.
+.home #search-top-utilities .language-box
 {
   padding-bottom: 10px;
 
@@ -683,6 +683,22 @@ body { top: 0px !important; }
       @include inline-block();
       margin-top: 10px;
     }
+  }
+}
+
+#app-footer .language-box
+{
+  margin: 20px;
+  margin-bottom: 0px;
+
+  ul
+  {
+    margin-bottom: 0px;
+  }
+
+  li
+  {
+    @include inline-block();
   }
 }
 

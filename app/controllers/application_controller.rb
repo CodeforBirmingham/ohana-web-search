@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  include GoogleTranslator
+
   unless Rails.application.config.consider_all_requests_local
     rescue_from Faraday::ConnectionFailed, with: :render_api_down
     rescue_from Ohanakapa::ServiceUnavailable, with: :render_api_down

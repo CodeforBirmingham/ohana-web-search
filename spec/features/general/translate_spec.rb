@@ -20,7 +20,7 @@ feature 'page translation', :js do
         set_cookie('googtrans=/en/es; path=/; domain=127.0.0.1')
 
       visit('/')
-      within('#language-box') do
+      within('#search-top-utilities .language-box') do
         all_links = all('a')
         expect(all_links).not_to include 'Español'
       end
@@ -32,7 +32,7 @@ feature 'page translation', :js do
     xit 'displays a Spanish-language contents' do
       visit('/')
       find_link('Español').click
-      within('#language-box') do
+      within('#search-top-utilities .language-box') do
         all_links = all('a')
         expect(all_links).not_to include 'Español'
       end

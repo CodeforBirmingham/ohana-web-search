@@ -3,6 +3,7 @@ module GoogleTranslator
 
   included do
     before_action :write_translation_cookie, if: :translation_requested?
+    before_action :current_language
   end
 
   def write_translation_cookie
@@ -20,5 +21,13 @@ module GoogleTranslator
 
   def translation_requested?
     params[:translate].present?
+  end
+
+  def current_language
+    if cookies[:googtrans].nil?
+      @current_lang = 'en'
+    else
+      @current_lang = cookies[:googtrans].split('/').last
+    end
   end
 end
